@@ -71,6 +71,22 @@ void Joystick::update() {
     magnitude = evalMagnitude();
 }
 
+void Joystick::setRawXY(int x, int y) {
+    // we need a virtual interface to the joystick to simulate it on the robot car
+    xAxis = bufferJoystickNeutral(x);
+    yAxis = bufferJoystickNeutral(y);
+    mapSquareToCircle(xAxis, yAxis, xAxisCircle, yAxisCircle);
+    magnitude = evalMagnitude();
+}
+
+int Joystick::getRawX() {
+    return xAxis;
+}
+
+int Joystick::getRawY() {
+    return yAxis;
+}
+
 float Joystick::getX() {
     return xAxisCircle;
 }

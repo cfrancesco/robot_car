@@ -21,7 +21,7 @@ private:
     int yAxis = JOYSTICK_MID;
     float xAxisCircle = 0.0;
     float yAxisCircle = 0.0;
-    int neutralBuffer = 20;
+    int neutralBuffer = 10;
     int magnitude = 0;
     int readX();
     int readY();
@@ -34,5 +34,8 @@ public:
     float getY();
     int getMagnitude();
     void update();
+    void setRawXY(int x, int y);
+    int getRawY();
+    int getRawX();
 };
 #endif
