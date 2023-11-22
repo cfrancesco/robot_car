@@ -14,7 +14,43 @@ To use a different folder for the build files, use the `--output-dir` and `input
 arduino-cli compile --fqbn arduino:avr:uno . --output-dir build
 arduino-cli upload --port /dev/tty.usbmodem1101 --fqbn arduino:avr:uno .  --input-dir build
 ```
+## Connections
+Vin and GND are shared by all components.
 
+### Battery
+The battery is connected to the arduino as follows:
+| Battery | Arduino |
+|---------|---------|
+| GND     | GND     |
+| VCC     | Vin     |
+
+### Joystick
+The joystick is connected to the arduino as follows:
+| Joystick | Arduino |
+|----------|---------|
+| GND      | GND     |
+| VCC      | 5V      |
+| VRX      | A1      |
+| VRY      | A0      |
+| [SW]       | [D2]      |
+
+### Motor controller
+The motor controller is connected to the arduino as follows:
+| Motor controller | Arduino |
+|------------------|---------|
+| GND              | GND     |
+| VMS              | Vin      |  
+| ENA              | D10     |
+| IN1              | D6      |
+| IN2              | D7      |
+| ENB              | D11     |
+| IN3              | D8      |
+| IN4              | D9      |
+
+## Code stuff
+In the joystick class, the map square to circle function represents the following mapping:
+
+![map_square_to_circle](resources/square_to_circle_map.png)
 ## Useful resources
 Use `arduino-cli`: [tutorial](https://www.devdungeon.com/content/arduino-cli-tutorial)
 ### arcuino-cli useful commands
