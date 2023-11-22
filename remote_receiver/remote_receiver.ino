@@ -16,9 +16,9 @@ void loop() {
     int received_x = code >> 10;
     int received_y = code & 0x3FF;
     Serial.print("X: ");
-    Serial.print(received_x);
+    Serial.println(received_x);
     Serial.print(" Y: ");
-    Serial.print(received_y);
+    Serial.println(received_y);
     mySwitch.resetAvailable();
     
   }

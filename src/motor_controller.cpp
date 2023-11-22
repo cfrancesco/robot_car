@@ -19,3 +19,43 @@ void MotorController::inputMotorSpeed(int motorSpeedA, int motorSpeedB) {
     digitalWrite(in3, motorSpeedB >= 0);
     digitalWrite(in4, motorSpeedB < 0);
 }
+
+# TODO: Make these constants configurable
+int JOYSTICK_MID = 512;
+int JOYSTICK_MAX = 1023;
+
+void MotorController::calculateMotorSpeedsForDirection(int speed, int xAxis, int& motorSpeedA, int& motorSpeedB) {
+    if (xAxis > JOYSTICK_MID) {  // Turn right
+        motorSpeedA = speed;
+        motorSpeedB = speed - map(xAxis, JOYSTICK_MID+1, JOYSTICK_MAX, 0, speed);
+    } else if (xAxis < JOYSTICK_MID) {  // Turn left
+        motorSpeedA = speed - map(xAxis, 0, JOYSTICK_MID-1, speed, 0);
+        motorSpeedB = speed;
+    } else {
+        motorSpeedB = speed;
+        motorSpeedA = speed;
+    }
+    // // print outputs
+    // Serial.print("Motor A: ");
+    // Serial.print(motorSpeedA);
+    // Serial.print(" | Motor B: ");c
+    // Serial.println(motorSpeedB);
+}
+
+void MotorController::setMotorDirectionAndSpeed(int speed, int xAxis) {
+    int motorSpeedA, motorSpeedB;
+
+    if (speed > 0) {  // Forward
+        calculateMotorSpeedsForDirection(speed, xAxis, motorSpeedA, motorSpeedB);
+    } else {  // Backward
+        calculateMotorSpeedsForDirection(speed, xAxis, motorSpeedB, motorSpeedA);
+    }
+    inputMotorSpeed(motorSpeedA, motorSpeedB);
+}
+
+void MotorController::setMotorSpeedFromJoystick(int x, int y, int speed) {
+        if (y < JOYSTICK_MID) {
+            speed = -speed;  // Reverse for negative Y values
+        }
+        setMotorDirectionAndSpeed(speed, x);
+    }

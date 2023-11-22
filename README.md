@@ -25,24 +25,14 @@ arduino-cli compile --fqbn arduino:avr:uno --library ./src remote_controller --o
 arduino-cli upload --port /dev/cu.usbmodem1101 --fqbn arduino:avr:uno remote_controller  --input-dir remote_controller/build
 ```
 ## Connections
-Vin and GND are shared by all components.
-
-### Battery
+Vin and GND are shared by all components that connect to it. Same for 5V (separate from Vin).
+### Robot Car
+#### Battery
 The battery is connected to the arduino as follows:
 | Battery | Arduino |
 |---------|---------|
 | GND     | GND     |
 | VCC     | Vin     |
-
-### Joystick
-The joystick is connected to the arduino as follows:
-| Joystick | Arduino |
-|----------|---------|
-| GND      | GND     |
-| VCC      | 5V      |
-| VRX      | A1      |
-| VRY      | A0      |
-| [SW]       | [D2]      |
 
 ### Motor controller
 The motor controller is connected to the arduino as follows:
@@ -56,6 +46,33 @@ The motor controller is connected to the arduino as follows:
 | ENB              | D11     |
 | IN3              | D8      |
 | IN4              | D9      |
+
+### Wireless module
+The wireless module is connected to the arduino as follows:
+| Wireless module | Arduino |
+|-----------------|---------|
+| GND             | GND     |
+| VCC             | 5V      |
+| SIG            | D2      |
+
+### Remote controller
+#### Joystick
+The joystick is connected to the arduino as follows:
+| Joystick | Arduino |
+|----------|---------|
+| GND      | GND     |
+| VCC      | 5V      |
+| VRX      | A1      |
+| VRY      | A0      |
+
+### Wireless module
+The wireless module is connected to the arduino as follows:
+| Wireless module | Arduino |
+|-----------------|---------|
+| GND             | GND     |
+| VCC             | 5V      |
+| SIG            | D10      |
+
 
 ## Code stuff
 In the joystick class, the map square to circle function represents the following mapping:

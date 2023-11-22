@@ -13,6 +13,9 @@ private:
 public:
     MotorController(int a, int i1, int i2, int b, int i3, int i4);
     void inputMotorSpeed(int motorSpeedA, int motorSpeedB);
+    void calculateMotorSpeedsForDirection(int speed, int xAxis, int& motorSpeedA, int& motorSpeedB);
+    void setMotorDirectionAndSpeed(int speed, int xAxis);
+    void setMotorSpeedFromJoystick(int x, int y, int speed);
 };
 
 #endif

@@ -13,22 +13,14 @@ void setup() {
 }
 
 void loop() {
-    Serial.println();
-    Serial.println("LOG START");
     if (mySwitch.available()) {
         long unsigned int code = mySwitch.getReceivedValue();
         int received_x = code >> 10;
         int received_y = code & 0x3FF;
         joystick.setRawXY(received_x, received_y);
-        Serial.print("X: ");
-        Serial.print(joystick.getX());
-        Serial.print(" Y: ");
-        Serial.print(joystick.getY());
-        Serial.print(" Magnitude: ");
-        Serial.println(joystick.getMagnitude());
-        Serial.println("LOG END");
-        motor.inputMotorSpeed(joystick.getMagnitude(), 0);
+        // motor.inputMotorSpeed(joystick.getMagnitude(), 0);
+        motor.setMotorSpeedFromJoystick(joystick.getRawX(), joystick.getRawY(), joystick.getMagnitude());
         mySwitch.resetAvailable();
     }
-    delay(30); // Optional delay for stability and reduced serial traffic.
+    delay(20); // Optional delay for stability and reduced serial traffic.
 }
