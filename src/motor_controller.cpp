@@ -20,7 +20,7 @@ void MotorController::inputMotorSpeed(int motorSpeedA, int motorSpeedB) {
     digitalWrite(in4, motorSpeedB < 0);
 }
 
-# TODO: Make these constants configurable
+// TODO: Make these constants configurable
 int JOYSTICK_MID = 512;
 int JOYSTICK_MAX = 1023;
 

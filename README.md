@@ -40,12 +40,12 @@ The motor controller is connected to the arduino as follows:
 |------------------|---------|
 | GND              | GND     |
 | VMS              | Vin      |  
-| ENA              | D10     |
-| IN1              | D6      |
-| IN2              | D7      |
-| ENB              | D11     |
-| IN3              | D8      |
-| IN4              | D9      |
+| ENA              | D3 (PWN enabled)     |
+| IN1              | D4      |
+| IN2              | D5      |
+| ENB              | D9 (PWM enabled)     |
+| IN3              | D7      |
+| IN4              | D8      |
 
 ### Wireless module
 The wireless module is connected to the arduino as follows:
@@ -66,12 +66,29 @@ The joystick is connected to the arduino as follows:
 | VRY      | A0      |
 
 ### Wireless module
+#### WPI496
 The wireless module is connected to the arduino as follows:
 | Wireless module | Arduino |
 |-----------------|---------|
 | GND             | GND     |
 | VCC             | 5V      |
 | SIG            | D10      |
+
+#### nRF24L01
+[tutorial](https://howtomechatronics.com/tutorials/arduino/arduino-wireless-communication-nrf24l01-tutorial/)
+This probably needs a separate arduino to work, since it uses SPI. Maybe I can connect the nano to the uno and use the uno as a bridge to the computer.
+
+The wireless module is connected to the arduino as follows:
+| Wireless module | Arduino |
+|-----------------|---------|
+| GND             | GND     |
+| VCC             | 3.3V      |
+| CSN            | D8 (or avl)      |
+| CE            | D9 (or avl)      |
+| SCK            | D13 (neces - SPI)      |
+| MOSI            | D11 (neces - SPI)      |
+| MISO            | D12 (neces - SPI)      |
+
 
 
 ## Code stuff
