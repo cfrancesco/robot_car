@@ -2,6 +2,7 @@
 #include <nRF24L01.h>
 #include <RF24.h>
 #include "joystick.h"
+#include "communication.h"
 
 RF24 radio(7, 8); // CE, CSN
 
@@ -18,12 +19,13 @@ Joystick joystick(A1, A0);
 
 void loop() {
   joystick.update();
-    long unsigned int code = 0;
-    int x = joystick.getRawX();
-    int y = joystick.getRawY();
-    // x and y have max values of 1023, so we can use 10 bits to represent them
-    code = (unsigned long)x << 10;
-    code = code | y;
+  long unsigned int code = 0;
+  float x = joystick.getX();
+  float y = joystick.getY();  // -1, 1 valued
+  unsigned int z = joystick.getMagnitude();
+  unsigned int x_int = floatToUInt(x);
+  unsigned int y_int = floatToUInt(y);
+  code = threeNumberPacking(x_int, y_int, z);
   radio.write(&code, sizeof(code));
-  delay(100);
+  delay(COMMUNICATION_DELAY);
 }

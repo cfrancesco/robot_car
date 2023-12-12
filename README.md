@@ -78,6 +78,8 @@ The wireless module is connected to the arduino as follows:
 [tutorial](https://howtomechatronics.com/tutorials/arduino/arduino-wireless-communication-nrf24l01-tutorial/)
 This probably needs a separate arduino to work, since it uses SPI. Maybe I can connect the nano to the uno and use the uno as a bridge to the computer.
 
+![connectors](image.png)
+
 The wireless module is connected to the arduino as follows:
 | Wireless module | Arduino |
 |-----------------|---------|

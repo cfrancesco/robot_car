@@ -12,6 +12,7 @@ Class variables:
 - (xAxisCircle, yAxisCircle) is (xAxis, yAxis) mapped to the unit circle.
 - magnitude is calculated using the circle values and represent the distance of the (xAxisCircle,yAxisCircle) point from the origin.
 */
+// TODO: x and y are functionally exchanged in this class. Fix this.
 private:
     const int xAxisPin;
     const int yAxisPin;
@@ -21,7 +22,7 @@ private:
     int yAxis = JOYSTICK_MID;
     float xAxisCircle = 0.0;
     float yAxisCircle = 0.0;
-    int neutralBuffer = 10;
+    int neutralBuffer = 20;
     int magnitude = 0;
     int readX();
     int readY();
