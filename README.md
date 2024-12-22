@@ -85,8 +85,8 @@ The wireless module is connected to the arduino as follows:
 |-----------------|---------|
 | GND             | GND     |
 | VCC             | 3.3V      |
-| CSN            | D8 (or avl)      |
-| CE            | D9 (or avl)      |
+| CSN            | D6 (or avl)      |
+| CE            | D10 (or avl)      |
 | SCK            | D13 (neces - SPI)      |
 | MOSI            | D11 (neces - SPI)      |
 | MISO            | D12 (neces - SPI)      |

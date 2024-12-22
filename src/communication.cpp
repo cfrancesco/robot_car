@@ -1,3 +1,6 @@
+const unsigned int COMMUNICATION_DELAY;
+int DEFAULT_INT_RANGE=500;
+
 unsigned long threeNumberPacking(unsigned int x, unsigned int y, unsigned int z) {
     unsigned long packedValue = 0;
     packedValue = (unsigned long)x << 20;
@@ -24,12 +27,10 @@ unsigned long twoNumberPacking(unsigned int x, unsigned int y) {
     return packedValue;
 }
 
-unsigned int floatToUInt(float f, unsigned int range) {
-    return static_cast<unsigned int>(f * range + range);
+unsigned int floatToUInt(float f) {
+    return static_cast<unsigned int>(f * DEFAULT_INT_RANGE + DEFAULT_INT_RANGE);
 }
 
-float uIntToFloat(unsigned int i, unsigned int range) {
-    return static_cast<float>(i - range) / range;
+float uIntToFloat(unsigned int i) {
+    return static_cast<float>(i - DEFAULT_INT_RANGE) / DEFAULT_INT_RANGE;
 }
-
-const unsigned int COMMUNICATION_DELAY;

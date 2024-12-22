@@ -24,7 +24,7 @@ void setup() {
   radio.setPALevel(RF24_PA_MIN);
   radio.startListening();
 }
-
+bool DEBUG = true;
 void loop() {
   if (radio.available()) {
     long unsigned int code;
@@ -41,4 +41,7 @@ void loop() {
     Serial.println(z);
   }
   delay(COMMUNICATION_DELAY); // Optional delay for stability and reduced serial traffic.
+  if (DEBUG) {
+    delay(1000);
+  }
 }

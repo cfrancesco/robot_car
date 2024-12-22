@@ -16,8 +16,6 @@ Class variables:
 private:
     const int xAxisPin;
     const int yAxisPin;
-    static const int JOYSTICK_MID = 512;
-    static const int JOYSTICK_MAX = 1023;
     int xAxis = JOYSTICK_MID;
     int yAxis = JOYSTICK_MID;
     float xAxisCircle = 0.0;
@@ -30,6 +28,8 @@ private:
     void mapSquareToCircle(float x, float y, float &xCircle, float &yCircle);
     int evalMagnitude();
 public:
+    static const int JOYSTICK_MID = 512;
+    static const int JOYSTICK_MAX = 1023;
     Joystick(int x, int y);
     float getX();
     float getY();

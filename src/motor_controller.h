@@ -15,7 +15,7 @@ public:
     void inputMotorSpeed(int motorSpeedA, int motorSpeedB);
     void calculateMotorSpeedsForDirection(int speed, int xAxis, int& motorSpeedA, int& motorSpeedB);
     void setMotorDirectionAndSpeed(int speed, int xAxis);
-    void setMotorSpeedFromJoystick(int x, int y, int speed);
+    void setMotorSpeedFromJoystick(int x, int speed);
 };
 
 #endif
