@@ -1,6 +1,6 @@
 # Installation of command line tools
 Install `arduino-cli`
-
+`arduino-cli` [tutorial](https://www.devdungeon.com/content/arduino-cli-tutorial)
 
 # Compile and upload project
 From the root folder of the project, run the following commands:
